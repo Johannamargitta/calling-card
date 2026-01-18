@@ -1,4 +1,16 @@
 /* ---------ALLGEMEINE STYLES----------- */
+@font-face {
+    font-family: "Avara-Bold";
+    src: url("fonts/Avara-Bold.woff2") format(woff2);
+}
+
+body {
+    font-family: "Avara-Bold", serif;
+    font-size: 15px;
+}
+    
+
+    
 img{
     max-width: 100%;
     height: auto;
@@ -9,12 +21,12 @@ img{
     display: grid;
     padding: 15px 15px 15px 15px;
     gap: 15px;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    "name name name name bio bio"
-    "text-1 image-1 image-1 image-1 image-1 image-1"
-    "image-2 image-2 image-2 text-2 text-2 ."
-    "image-3 image-3 image-3 text-3 . . ";
+    "name name name bio bio "
+    "text-1 image-1 image-1 image-1 image-1 "
+    "image-2 image-2 image-2 text-2 text-2 "
+    "image-3 image-3 image-3 text-3 .  ";
     
 }
 
@@ -23,15 +35,14 @@ img{
 }
 
 .name h1 {
-    color: rgb(251, 255, 0);
-    font-size: 100px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 6rem;
     margin:0;
 
 }
 
 .name h1:hover{
-    color:rgb(255, 43, 43);
+    color:rgb(0, 0, 0);
     font-style: italic;
 }
 .bio {
@@ -43,7 +54,7 @@ img{
     font-size: 30px;
     margin: 0;
     line-height: 1;
-    text-align: justify;
+    text-align: right;
 
 }
 /* shift command 7 für kommentar */
