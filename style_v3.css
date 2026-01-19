@@ -6,6 +6,7 @@
 img{
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 /* ----------MEIN RASTER--------------- */
@@ -26,6 +27,9 @@ img{
 
 .name {
     grid-area: name;
+    position: relative;
+    top: 15px;
+    z-index: 1;
 }
 
 .name h1 {
@@ -57,23 +61,42 @@ img{
 
 .parisimage-1 {
     grid-area: parisimage-1;
-    position: relative; /* wichtig! */
-    position: static;
+    position: relative; 
+    
 }
 
-.circle {
+.parisimage-1 img{
+    transition: opacity 0.3s ease;
+}
+
+.parisimage-1 .b {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: rgb(255, 77, 0);
-    border-radius: 50%;
-    top: 20px;
-    left: 20px;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }
 
+.parisimage-1:hover .a {
+    opacity:0;
+}
+
+.parisimage-1:hover .b {
+    opacity: 1;
+}
 
 .parisimage-2 {
     grid-area: parisimage-2;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px
 }
 
 .parisimage-3 {

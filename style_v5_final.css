@@ -1,0 +1,87 @@
+/* ---------ALLGEMEINE STYLES----------- */
+ @font-face {
+    font-family: "Kindheitfont";
+    src: url(fonts/Kindheitfont.woff2) format(woff2)
+} 
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* ----------MEIN RASTER--------------- */
+.grid-container{
+    display: grid;
+    padding: 15px 15px 15px 15px;
+    gap: 15px;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "name name name bio bio "
+    "text-1 image-1 image-1 image-1 image-1 "
+    "image-2 image-2 image-2 text-2 text-2 "
+    "image-3 image-3 image-3 text-3 .  ";
+    
+}
+
+.name {
+    grid-area: name;
+}
+
+.name h1 {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    margin:0;
+    font-family: "Kindheitfont";
+    
+
+}
+
+.name h1:hover{
+    color:rgb(0, 0, 0);
+    font-style: italic;
+}
+.bio {
+    grid-area: bio;
+}
+
+.bio p {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    margin: 0;
+    line-height: 1;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+}
+/* shift command 7 für kommentar */
+
+
+.image-1 {
+    grid-area: image-1;
+}
+
+.image-2 {
+    grid-area: image-2;
+}
+
+.image-3 {
+    grid-area: image-3;
+}
+
+.image-4 {
+    grid-area: image-4;
+}
+
+
+.text-1 {
+    grid-area: text-1;
+}
+
+.text-2 {
+    grid-area: text-2;
+}
+
+.text-3 {
+    grid-area: text-3;
+}
