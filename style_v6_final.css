@@ -1,107 +1,172 @@
 /* ---------ALLGEMEINE STYLES----------- */
- @font-face {
-    font-family: "Kindheitfont";
-    src: url(fonts/Kindheitfont.woff2) format(woff2)
-} 
-
 @font-face {
-    font-family: "Alte Haas Grotesk Bold";
-    src: url(fonts/Alte\ Haas\ Grotesk\ Bold\ V2.woff2) format(woff2)
+font-family: "Kindheitfont";
+src: url(fonts/Kindheitfont.woff2) format(woff2)
 } 
-
+@font-face {
+font-family: "Alte Haas Grotesk Bold";
+src: url(fonts/Alte\ Haas\ Grotesk\ Bold\ V2.woff2) format(woff2)
+} 
 img{
-    max-width: 100%;
-    height: auto;
+max-width: 100%;
+height: auto;
+display: block;
 }
 
 /* ----------MEIN RASTER--------------- */
 .grid-container{
-    display: grid;
-    padding: 15px 15px 15px 15px;
-    gap: 15px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "name . . . bio"
-    "image-1 image-1 . image-3 image-3"
-    ". . image-2 image-2 .";
-    
-    
+display: grid;
+padding: 15px;
+gap: 15px;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+grid-template-areas: 
+"name . . . bio"
+"image-1 image-1 . image-3 image-3"
+". . image-2 image-2 ."
+"caption-1-P caption-1-P . caption-3-L caption-3-L"
+". . caption-2-V caption-2-V .";
+position: relative;
 }
 
 .name {
-    grid-area: name;
+grid-area: name;
+z-index: 6;
 }
-
 .name h1 {
-    color: rgb(0, 0, 0);
-    font-size: 35px;
-    margin:0;
-    font-family: "Kindheitfont";
-    margin-bottom: 0%;
-    
-
+color: rgb(0, 0, 0);
+font-size: 35px;
+margin: 0;
+font-family: "Kindheitfont";
 }
-
 .name h1:hover{
-    color:rgb(0, 0, 0);
-    font-style: italic;
+font-style: italic;
 }
+
 .bio {
-    grid-area: bio;
+grid-area: bio;
+z-index: 6;
 }
-
 .bio p {
-    color: rgb(0, 0, 0);
-    font-size: 35px;
-    margin: 0;
-    line-height: 1;
-    text-align: right;
-    font-family: Arial, Helvetica, sans-serif;
-    
-
-}
-/* shift command 7 für kommentar */
-
-
-.image-1 {
-    grid-area: image-1;
+color: rgb(0, 0, 0);
+font-size: 35px;
+margin: 0;
+line-height: 1;
+text-align: right;
+font-family: "Alte Haas Grotesk Bold";
 }
 
-
-.image-2 {
-    grid-area: image-2;
-}
-
-.image-3 {
-    grid-area: image-3;
-}
-
-.image-1,
-.image-2,
-.image-3 {
-    z-index: 1;
-    transition: z-index 0s;
-
-}
-
-.image-1:hover, 
-.image-2:hover,
-.image-3:hover {
-    z-index: 4;
-}
-
-
+/* Text der immer da ist */
 .text-1{
-    font-size: 150px;
-    font-family: "Alte Haas Grotesk Bold";
-    text-align: justify;
-    margin-top: 0%;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    z-index: 2;
-    pointer-events: none;
+font-size: 150px;
+font-family: "Alte Haas Grotesk Bold";
+text-align: justify;
+grid-column: 1 / -1;
+grid-row: 1 / -1;
+z-index: 5;
+pointer-events: none;
+transition: filter 0.3s ease;
 }
 
-.text-1-P {
-    I spent twelve days in the Passage Verdeau, observing and experiencing the space from within. During this time, I primarily engaged with the shopkeepers, whose daily presence shapes the passage. Through these encounters, I realized that the Passage Verdeau exists and comes to life because of them. It is a woven network of voices, routines, and personalities. These experiences and conversations formed the basis for the book Le tissage des voix.
+/* Bilder */
+.image-1 {
+grid-area: image-1;
+position: relative;
+z-index: 2;
+transition: filter 0.3s ease, z-index 0s;
+cursor: pointer;
+}
+.image-2 {
+grid-area: image-2;
+position: relative;
+z-index: 2;
+transition: filter 0.3s ease, z-index 0s;
+cursor: pointer;
+}
+.image-3 {
+grid-area: image-3;
+position: relative;
+z-index: 2;
+transition: filter 0.3s ease, z-index 0s;
+cursor: pointer;
+}
+
+/* HOVER EFFEKTE - Das gehoverte Bild kommt nach vorne, andere werden blurry */
+.image-1:hover {
+z-index: 10;
+filter: none;
+}
+.image-2:hover {
+z-index: 10;
+filter: none;
+}
+.image-3:hover {
+z-index: 10;
+filter: none;
+}
+
+
+.image-1:hover ~ .image-2,
+.image-1:hover ~ .image-3,
+.image-1:hover ~ .text-1 {
+filter: blur(5px);
+}
+
+
+.image-2:hover ~ .image-3,
+.image-2:hover ~ .text-1 {
+filter: blur(5px);
+}
+/* image-1 ist VOR image-2, also brauchen wir einen Workaround */
+.grid-container:has(.image-2:hover) .image-1 {
+filter: blur(5px);
+}
+
+
+.image-3:hover ~ .text-1 {
+filter: blur(5px);
+}
+.grid-container:has(.image-3:hover) .image-1,
+.grid-container:has(.image-3:hover) .image-2 {
+filter: blur(5px);
+}
+
+
+.caption-1-P {
+grid-area: caption-1-P;
+opacity: 0;
+transition: opacity 0.3s ease;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+line-height: 1.4;
+z-index: 11;
+}
+.caption-2-V {
+grid-area: caption-2-V;
+opacity: 0;
+transition: opacity 0.3s ease;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+line-height: 1.4;
+z-index: 11;
+}
+.caption-3-L {
+grid-area: caption-3-L;
+opacity: 0;
+transition: opacity 0.3s ease;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+line-height: 1.4;
+z-index: 11;
+grid-row: ;
+}
+
+
+.image-1:hover ~ .caption-1-P {
+opacity: 1;
+}
+.image-2:hover ~ .caption-2-V {
+opacity: 1;
+}
+.image-3:hover ~ .caption-3-L {
+opacity: 1;
 }
