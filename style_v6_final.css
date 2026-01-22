@@ -7,6 +7,10 @@ src: url(fonts/Kindheitfont.woff2) format(woff2)
 font-family: "Alte Haas Grotesk Bold";
 src: url(fonts/Alte\ Haas\ Grotesk\ Bold\ V2.woff2) format(woff2)
 } 
+@font-face {
+font-family: "Alte haas";
+src: url(fonts/38025932dce48e268882d955f7a66826.woff2) format(woff2)
+} 
 img{
 max-width: 100%;
 height: auto;
@@ -20,11 +24,9 @@ padding: 15px;
 gap: 15px;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 grid-template-areas: 
-"name . . . bio"
+"name . info . bio"
 "image-1 image-1 . image-3 image-3"
-". . image-2 image-2 ."
-"caption-1-P caption-1-P . caption-3-L caption-3-L"
-". . caption-2-V caption-2-V .";
+". . image-2 image-2 .";
 position: relative;
 }
 
@@ -135,7 +137,7 @@ filter: blur(5px);
 grid-area: caption-1-P;
 opacity: 0;
 transition: opacity 0.3s ease;
-font-family: Arial, Helvetica, sans-serif;
+font-family: "Alte haas";
 font-size: 14px;
 line-height: 1.4;
 z-index: 11;
@@ -144,7 +146,7 @@ z-index: 11;
 grid-area: caption-2-V;
 opacity: 0;
 transition: opacity 0.3s ease;
-font-family: Arial, Helvetica, sans-serif;
+font-family: "Alte haas";
 font-size: 14px;
 line-height: 1.4;
 z-index: 11;
@@ -153,7 +155,7 @@ z-index: 11;
 grid-area: caption-3-L;
 opacity: 0;
 transition: opacity 0.3s ease;
-font-family: Arial, Helvetica, sans-serif;
+font-family: "Alte haas";
 font-size: 14px;
 line-height: 1.4;
 z-index: 11;
@@ -170,3 +172,11 @@ opacity: 1;
 .image-3:hover ~ .caption-3-L {
 opacity: 1;
 }
+
+
+
+
+
+
+
+
