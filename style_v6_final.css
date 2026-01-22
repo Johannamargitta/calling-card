@@ -24,10 +24,9 @@ padding: 15px;
 gap: 15px;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 grid-template-areas: 
-"name . info . bio"
+"name . . info bio"
 "image-1 image-1 . image-3 image-3"
 ". . image-2 image-2 .";
-position: relative;
 }
 
 .name {
@@ -55,6 +54,11 @@ margin: 0;
 line-height: 1;
 text-align: right;
 font-family: "Alte Haas Grotesk Bold";
+margin-top: 23px;
+}
+
+.bio p:hover{
+    font-style: italic;
 }
 
 /* Text der immer da ist */
@@ -133,43 +137,51 @@ filter: blur(5px);
 }
 
 
-.caption-1-P {
-grid-area: caption-1-P;
-opacity: 0;
-transition: opacity 0.3s ease;
-font-family: "Alte haas";
-font-size: 14px;
-line-height: 1.4;
-z-index: 11;
-}
-.caption-2-V {
-grid-area: caption-2-V;
-opacity: 0;
-transition: opacity 0.3s ease;
-font-family: "Alte haas";
-font-size: 14px;
-line-height: 1.4;
-z-index: 11;
-}
-.caption-3-L {
-grid-area: caption-3-L;
-opacity: 0;
-transition: opacity 0.3s ease;
-font-family: "Alte haas";
-font-size: 14px;
-line-height: 1.4;
-z-index: 11;
-
-}
-
-
-.image-1:hover ~ .caption-1-P {
+.image-1:hover ~ .info1 {
 opacity: 1;
 }
-.image-2:hover ~ .caption-2-V {
+.image-2:hover ~ .info2 {
 opacity: 1;
 }
-.image-3:hover ~ .caption-3-L {
+.image-3:hover ~ .info3 {
+opacity: 1;
+}
+
+/* INFO CONTAINER - der Hauptordner */
+.info {
+grid-area: info;
+z-index: 11;
+position: relative;
+}
+
+/* Die einzelnen Info-Texte - übereinander gestapelt */
+.info1,
+.info2,
+.info3 {
+opacity: 0;
+transition: opacity 0.3s ease;
+font-family: "Alte Haas Grotesk Bold";
+font-size: 30px;
+line-height: 1.4;
+position: absolute;  /* Alle an derselben Position */
+top: 0;
+left: 0;
+width: 100%;
+margin-left: 300px;
+margin-top: -20px;
+}
+
+/* .grid-container:has() ist basically als ob der grid-container einen nachfolger hat */
+
+.grid-container:has(.image-1:hover) .info1 {
+opacity: 1;
+}
+
+.grid-container:has(.image-2:hover) .info2 {
+opacity: 1;
+}
+
+.grid-container:has(.image-3:hover) .info3 {
 opacity: 1;
 }
 
