@@ -35,7 +35,7 @@ grid-template-areas:
 "image-1 image-1 . image-3 image-3"
 ". . image-2 image-2 .";
 }
-/* "johannamargitta" und bio"***" */
+
 .name {
 grid-area: name;
 z-index: 6;
@@ -90,8 +90,6 @@ margin-top: 13px;
 .bio a.stars span:nth-child(3) {
     animation-delay: 0s;
 }
-
-
 
 
 /* grosser text */
