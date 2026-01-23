@@ -7,12 +7,22 @@ src: url(fonts/Kindheitfont.woff2) format(woff2)
 font-family: "Alte Haas Grotesk Bold";
 src: url(fonts/Alte\ Haas\ Grotesk\ Bold\ V2.woff2) format(woff2)
 } 
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
 
 img{
 max-width: 100%;
 height: auto;
 display: block;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
 
 /* --------------MEIN RASTER--------------- */
 .grid-container{
@@ -21,7 +31,7 @@ padding: 15px;
 gap: 15px;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 grid-template-areas: 
-"name . . info bio"
+"name info info info bio"
 "image-1 image-1 . image-3 image-3"
 ". . image-2 image-2 .";
 }
@@ -36,9 +46,6 @@ font-size: 35px;
 margin: 0;
 font-family: "Kindheitfont";
 }
-.name h1:hover{
-font-style: italic;
-}
 
 .bio {
 grid-area: bio;
@@ -51,12 +58,41 @@ margin: 0;
 line-height: 1;
 text-align: right;
 font-family: "Alte Haas Grotesk Bold";
-margin-top: 23px;
+margin-bottom: -300px;
+margin-top: 13px;
 }
 
-.bio p:hover{
-    font-style: italic;
+
+.bio a.stars {
+    display: inline-flex;
+    gap: 2px;
 }
+
+.bio a.stars span {
+    display: inline-block;
+    transform-origin: center center;
+    line-height: 1;
+}
+
+
+.bio a.stars:hover span {
+    animation: spin 1s linear infinite;
+}
+
+.bio a.stars span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.bio a.stars span:nth-child(2) {
+    animation-delay: 0s;
+}
+
+.bio a.stars span:nth-child(3) {
+    animation-delay: 0s;
+}
+
+
+
 
 /* grosser text */
 .text-1{
@@ -66,8 +102,13 @@ text-align: justify;
 grid-column: 1 / -1;
 grid-row: 1 / -1;
 z-index: 5;
+margin-bottom: -300px;
 pointer-events: none;
 transition: filter 0.3s ease;
+}
+
+.text-1 p {
+margin-top: 50px;
 }
 
 /* Bilder */
@@ -159,15 +200,27 @@ position: relative;
 opacity: 0;
 transition: opacity 0.3s ease;
 font-family: "Alte Haas Grotesk Bold";
-font-size: 25px;
+font-size: 20px;
 line-height: 1.4;
 position: absolute;  
 top: 0;
 left: 0;
 width: 100%;
-margin-top: -20px;
-text-align: right;
+margin-top: -5px;
+text-align: center;
 
+}
+
+.info1 em {
+    font-style: italic;
+}
+
+.info2 em {
+    font-style: italic;
+}
+
+.info3 em {
+    font-style: italic;
 }
     
 /* .grid-container:has() ist basically als ob der grid-container einen nachfolger hat */
