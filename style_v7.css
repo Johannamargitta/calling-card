@@ -120,7 +120,7 @@ filter: blur(5px);
 filter: blur(5px);
 }
 
-/* :has() merken: es ersetzt ein anderes */
+/* :has() muss ich merken: es ersetzt ein anderes */
 .grid-container:has(.image-2:hover) .image-1 {
 filter: blur(5px);
 }
@@ -159,16 +159,17 @@ position: relative;
 opacity: 0;
 transition: opacity 0.3s ease;
 font-family: "Alte Haas Grotesk Bold";
-font-size: 30px;
+font-size: 25px;
 line-height: 1.4;
 position: absolute;  
 top: 0;
 left: 0;
 width: 100%;
-margin-left: 300px;
 margin-top: -20px;
-}
+text-align: right;
 
+}
+    
 /* .grid-container:has() ist basically als ob der grid-container einen nachfolger hat */
 
 .grid-container:has(.image-1:hover) .info1 {
